@@ -1,0 +1,421 @@
+{
+  "info": {
+    "_postman_id": "66c77781-a1a4-44bc-aa6b-0e25847be08c",
+    "name": "_CAP OData callls",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET Sales Metadata",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "1dcf7d92-f4dd-45db-914a-664702b65208",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "fb528906-5eb6-4adc-a504-6de03c0cf0b1",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://{{tenantMain}}-{{space}}-{{appName}}-srv.cfapps.{{region}}.hana.ondemand.com/catalog/$metadata#Sales"
+      },
+      "response": []
+    },
+    {
+      "name": "GET Sales",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "15c01102-0f23-4d05-83e1-58811926890d",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "dd5db6c8-6d24-4800-8bf8-784510c3f154",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://{{tenantMain}}-{{space}}-{{appName}}-srv.cfapps.{{region}}.hana.ondemand.com/catalog/Sales"
+      },
+      "response": []
+    },
+    {
+      "name": "POST Sales 1 Draft Edit(Create draft)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "e96bd7f9-0514-48b0-84e5-c4e39f6b1eef",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "c19a09e7-2024-456d-9e8e-faeefc492ca5",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-HTTP-Method-Override",
+            "value": "UPDATE",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://{{tenantMain}}-{{space}}-{{appName}}-srv.cfapps.{{region}}.hana.ondemand.com/catalog/Sales(salesUUID='{{salesUUID}}',IsActiveEntity=false)/CatalogService.draftEdit"
+      },
+      "response": []
+    },
+    {
+      "name": "POST Sales 2 Draft Update Field",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "a34e8924-71c4-436c-8f8a-7ba301e2ac6a",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "ccafcb4d-dc26-488f-a7ea-4d17060c310d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-HTTP-Method-Override",
+            "value": "UPDATE",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"region\":\"Antarctica\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://{{tenantMain}}-{{space}}-{{appName}}-srv.cfapps.{{region}}.hana.ondemand.com/catalog/Sales(salesUUID='{{salesUUID}}',IsActiveEntity=false)"
+      },
+      "response": []
+    },
+    {
+      "name": "POST Sales 3 Draft Prepare",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "46f3ebbf-c1b2-4a45-b1ac-75a82ee4145d",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "ba0de9c6-d251-43c5-815c-afb0efa627c0",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-HTTP-Method-Override",
+            "value": "UPDATE",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://{{tenantMain}}-{{space}}-{{appName}}-srv.cfapps.us10.hana.ondemand.com/catalog/Sales(salesUUID='{{salesUUID}}',IsActiveEntity=false)/CatalogService.draftPrepare"
+      },
+      "response": []
+    },
+    {
+      "name": "POST Sales 4 Draft Activate",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "f8d694de-534d-45cc-a0b8-1f64f68318b7",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "2b10d523-e43f-44ad-9116-62c623261a04",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-HTTP-Method-Override",
+            "value": "UPDATE",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://{{tenantMain}}-{{space}}-{{appName}}-srv.cfapps.{{region}}.hana.ondemand.com/catalog/Sales(salesUUID='{{salesUUID}}',IsActiveEntity=false)/CatalogService.draftActivate"
+      },
+      "response": []
+    },
+    {
+      "name": "GET Sales 5 Updated entity",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "292acd74-73ef-4738-b638-3d87bf1f57c0",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "2577558c-5bf0-4d6c-89a0-73479503d14a",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-HTTP-Method-Override",
+            "value": "UPDATE",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://{{tenantMain}}-{{space}}-{{appName}}-srv.cfapps.{{region}}.hana.ondemand.com/catalog/Sales(salesUUID='{{salesUUID}}',IsActiveEntity=true)"
+      },
+      "response": []
+    },
+    {
+      "name": "GET Z_Regions",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "0edeff98-5d59-43b6-8303-84410099595e",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "242369a6-5a60-4955-ad25-c2a2221bd43e",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-HTTP-Method-Override",
+            "value": "UPDATE",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://{{tenantMain}}-{{space}}-{{appName}}-srv.cfapps.{{region}}.hana.ondemand.com/catalog/Z_Regions"
+      },
+      "response": []
+    },
+    {
+      "name": "POST Z_Regions",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "61aa785c-aa26-405a-be78-9a92790e0170",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "0e14c266-8dd8-45b3-b60f-2dcd043f9364",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-HTTP-Method-Override",
+            "value": "UPDATE",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"region\":\"Asia\"}\r\n\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://{{tenantMain}}-{{space}}-{{appName}}-srv.cfapps.{{region}}.hana.ondemand.com/catalog/Z_Regions"
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": {
+      "tokenType": "bearer",
+      "accessToken": "eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vMjA4Nzg0MnNhYXMuYXV0aGVudGljYXRpb24udXMxMC5oYW5hLm9uZGVtYW5kLmNvbS90b2tlbl9rZXlzIiwia2lkIjoiZGVmYXVsdC1qd3Qta2V5LS0xNDAzNzYwOTE4IiwidHlwIjoiSldUIn0.eyJqdGkiOiIyYzVkZWY2MzA2OGM0YThjODc3NWFlMjUxMzllNDEwNiIsImV4dF9hdHRyIjp7ImVuaGFuY2VyIjoiWFNVQUEiLCJzdWJhY2NvdW50aWQiOiJjOWI0ZTg2NC05MmQ0LTRlMTItODY3Yy0yODJmYTI4MTRjN2UiLCJ6ZG4iOiIyMDg3ODQyc2FhcyJ9LCJ4cy5zeXN0ZW0uYXR0cmlidXRlcyI6eyJ4cy5yb2xlY29sbGVjdGlvbnMiOlsiU3ViYWNjb3VudCBTZXJ2aWNlIEFkbWluaXN0cmF0b3IiLCJwYnNhYXNwb2MxX1ZpZXdlciIsInBic2Fhc3BvYzFfQWRtaW5pc3RyYXRvciIsInBic2Fhc3BvYzFfRXh0ZW5zaW9uX0RldmVsb3Blcl9EZWxldGUiLCJwYnNhYXNwb2MxX0V4dGVuc2lvbl9EZXZlbG9wZXIiLCJEZXN0aW5hdGlvbiBBZG1pbmlzdHJhdG9yIiwiU3ViYWNjb3VudCBWaWV3ZXIiLCJTdWJhY2NvdW50IEFkbWluaXN0cmF0b3IiLCJDbG91ZCBDb25uZWN0b3IgQWRtaW5pc3RyYXRvciIsIkNvbm5lY3Rpdml0eSBhbmQgRGVzdGluYXRpb24gQWRtaW5pc3RyYXRvciJdfSwiZ2l2ZW5fbmFtZSI6IlBhdmVsIiwieHMudXNlci5hdHRyaWJ1dGVzIjp7fSwiZmFtaWx5X25hbWUiOiJCZWxza2kiLCJzdWIiOiI3NWNlYjBkOC1hYTdiLTQwZWQtOWQ0YS1lYmZiODI5YWY3OTUiLCJzY29wZSI6WyJkZXYtcGJzYWFzcG9jMSF0NTY5MjQuVmlld2VyIiwiZGV2LXBic2Fhc3BvYzEhdDU2OTI0LkFkbWluIl0sImNsaWVudF9pZCI6InNiLWRldi1wYnNhYXNwb2MxIXQ1NjkyNCIsImNpZCI6InNiLWRldi1wYnNhYXNwb2MxIXQ1NjkyNCIsImF6cCI6InNiLWRldi1wYnNhYXNwb2MxIXQ1NjkyNCIsImdyYW50X3R5cGUiOiJwYXNzd29yZCIsInVzZXJfaWQiOiI3NWNlYjBkOC1hYTdiLTQwZWQtOWQ0YS1lYmZiODI5YWY3OTUiLCJvcmlnaW4iOiJzYXAuZGVmYXVsdCIsInVzZXJfbmFtZSI6ImFrZWxhYmFyeXNhdUBnbWFpbC5jb20iLCJlbWFpbCI6ImFrZWxhYmFyeXNhdUBnbWFpbC5jb20iLCJhdXRoX3RpbWUiOjE2NDQ1NjIxOTMsInJldl9zaWciOiJlZjIzMzNjYiIsImlhdCI6MTY0NDU2MjE5MywiZXhwIjoxNjQ0NTY1NzkzLCJpc3MiOiJodHRwczovLzIwODc4NDJzYWFzLmF1dGhlbnRpY2F0aW9uLnVzMTAuaGFuYS5vbmRlbWFuZC5jb20vb2F1dGgvdG9rZW4iLCJ6aWQiOiJjOWI0ZTg2NC05MmQ0LTRlMTItODY3Yy0yODJmYTI4MTRjN2UiLCJhdWQiOlsiZGV2LXBic2Fhc3BvYzEhdDU2OTI0Iiwic2ItZGV2LXBic2Fhc3BvYzEhdDU2OTI0Il19.g_7arV_a4fQrTJ04eKMbRuUFUENlWvjVaEhod1QctvRJnPVN-qw6aSHjEmc78o1tbvd1mrj-IR72jk1uwu3owXyo7uQfX4rNtWfDg_wLYnxe3Ufsepzi07FFjLI4riX5xwZYEts7LVoKnfQlN_C-kZM6Unxyyl2NxcdMO1wkF8w3SHvuGsNkD2DeM_RiVLOJsvRDiQyG8TU1eADCbvUPgMpsDkwweUNVd8wTRH_kIMv1JJcsQIg4KmyYVoQ-irHykC8ndXHFxfAquJTptv5uK6DH_7rafpekS5J36UGNv6YqoDx8LdqeQclHtfBjLfNSj1dqEvVtMq1o5wN4J5dK7w",
+      "accessTokenUrl": "https://{{tenantSubscriber1}}.{{accessTokenURL}}",
+      "clientId": "{{clientid}}",
+      "clientSecret": "{{clientsecret}}",
+      "username": "{{username}}",
+      "password": "{{password}}",
+      "scope": "{{scope}}",
+      "tokenName": "Token",
+      "challengeAlgorithm": "S256",
+      "grant_type": "password_credentials",
+      "addTokenTo": "header",
+      "client_authentication": "header"
+    }
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "0a3d5c83-ea41-4070-9d30-5bd744fbffce",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "a134ddfd-b2a8-487a-8c7c-be24f4e441d3",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
